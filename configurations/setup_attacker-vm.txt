@@ -1,0 +1,19 @@
+#!/bin/bash
+
+sudo apt-get update
+sudo apt-get install -qy curl python2 python2-dev git hydra build-essential
+
+curl https://bootstrap.pypa.io/pip/2.7/get-pip.py -o /tmp/get-pip.py
+python2 /tmp/get-pip.py
+
+sudo git clone https://github.com/SecureAuthCorp/pysap /opt/pysap
+sudo python2 -m pip install -r /opt/pysap/requirements.txt
+sudo python2 -m pip install -r /opt/pysap/requirements-examples.txt
+sudo python2 -m pip install setuptools
+cd /opt/pysap && sudo python2 setup.py install
+
+echo "You can now run the pysap examples as root!"
+
+sudo mkdir -p /opt/wordlists
+sudo curl https://raw.githubusercontent.com/danielmiessler/SecLists/master/Usernames/top-usernames-shortlist.txt -o /opt/wordlists/usernames.txt
+sudo curl https://raw.githubusercontent.com/danielmiessler/SecLists/master/Passwords/darkweb2017-top1000.txt -o /opt/wordlists/passwords.txt

@@ -1,0 +1,36 @@
+#!/bin/bash
+
+sudo mkdir -p /opt/saprouter
+
+sudo curl https://raw.githubusercontent.com/randomstr1ng/static-files/master/saprouter_linux/saprouter -o /opt/saprouter/saprouter
+sudo curl https://raw.githubusercontent.com/randomstr1ng/static-files/master/saprouter_linux/niping -o /opt/saprouter/niping
+
+sudo chmod +x /opt/saprouter/saprouter
+sudo chmod +x /opt/saprouter/niping
+
+
+sudo echo -n "IwlTb3VyY2UJRGVzdAlTZXJ2aWNlClAJKgkqCSoKUAkqCSoJMjIK" |base64 -d > /tmp/test
+sudo mv /tmp/test /opt/saprouter/saprouttab
+
+
+sudo echo "[Unit]
+Description=SAP Router Configuration
+After=syslog.target network.target
+
+[Service]
+Type=simple
+RemainAfterExit=yes
+WorkingDirectory=/opt/saprouter
+ExecStart=/opt/saprouter/saprouter -r -G router.log
+ExecStop=/opt/saprouter/saprouter -s
+KillMode=none
+Restart=no
+
+[Install]
+WantedBy=multi-user.target" > /tmp/test2
+
+sudo mv /tmp/test2 /etc/systemd/system/saprouter.service
+
+sudo systemctl daemon-reload
+sudo systemctl enable saprouter.service
+sudo systemctl start saprouter.service
