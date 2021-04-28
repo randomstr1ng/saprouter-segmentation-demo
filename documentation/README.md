@@ -43,7 +43,7 @@ In this documentation you will find a guideline how the demo can be done.
 ## Deplyoment
 
 Deploy the Lab Enviroment in Azure.
-
+Example output:
 ```bash
 $ terraform init
 ...[snip]...
