@@ -36,9 +36,9 @@ The Setup consist of the following components:
 
 ## Deploy demo environment
 
-- Fillout the required variables within `variables.tfvars`
+- Fillout the required variables within `variables.tfvars` (Example: variables.tfvarsexample)
 
-```vim
+```terraform
 subscription_id = ""
 client_id = ""
 client_secret = ""
@@ -48,32 +48,32 @@ adminusername = ""
 adminpassword = ""
 ```
 
-* enter a valid license into `license.txt`
+* enter a valid license into `./configurations/license.txt`
 * Initilize terraform environment
 
 ```bash
-terraform init
+$ terraform init
 ```
 
 * Check & Deploy the demo environment
 
 ```bash
-terraform plan --var-file variables.tfvars
+$ terraform plan --var-file variables.tfvars
 ...[snip]...
-terraform apply --var-file variables.tfvars
+$ terraform apply --var-file variables.tfvars
 ...[snip]...
 ```
 
 * After a successfull deployment, you will be provided with the necessary IP address and login credentials.
-* You can login to the Attacker VM via SSH key and the public IP
+* You can login to the Attacker VM via SSH key and the public IP (Example)
 
 ```bash
-ssh -i ssh_key.pem saprouter-demo-admin@4.3.2.1
+$ ssh -i ssh_key.pem saprouter-demo-admin@4.3.2.1
 ```
 
 * In addition, you can logon to FortiGate via the username/password & public IP address provided by terraform. 
 
 ## Demo scenario description
 
-[Demo documentation / How-to guide](./documentation/how-to.md)
+[Demo documentation/How-to guide](./documentation/README.md)
 
