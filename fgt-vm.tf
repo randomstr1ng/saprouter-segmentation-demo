@@ -58,5 +58,6 @@ data "template_file" "fgtvm" {
     client_secret   = var.client_secret
     client_id       = var.client_id
     tenant_id       = var.tenant_id
+    flexvm_token    = var.flexvm_token
   }
 }

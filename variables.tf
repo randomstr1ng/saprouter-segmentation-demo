@@ -40,9 +40,11 @@ variable "size" {
   type    = string
   default = "Standard_F4s"
 }
-
+// Could be byol, payg or flexvm
 variable "license_type" {
+  type        = string
   default     = "byol"
+
 }
 variable "publisher" {
   type    = string
@@ -56,6 +58,10 @@ variable "license" {
   type    = string
   default = "./configurations/license.txt"
 }
+variable "flexvm_token" {
+  type    = string
+  default = ""
+}
 variable "fgtsku" {
   type = map
   default = {
@@ -65,7 +71,7 @@ variable "fgtsku" {
 }
 variable "fgtversion" {
   type    = string
-  default = "7.0.0"
+  default = "7.0.1"
 }
 
 variable "fgtiface1" {
