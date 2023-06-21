@@ -40,12 +40,7 @@ variable "size" {
   type    = string
   default = "Standard_F4s"
 }
-// Could be byol, payg or flexvm
-variable "license_type" {
-  type        = string
-  default     = "byol"
 
-}
 variable "publisher" {
   type    = string
   default = "fortinet"
@@ -56,22 +51,20 @@ variable "fgtoffer" {
 }
 variable "license" {
   type    = string
-  default = "./configurations/license.txt"
+  description = "Provide PATH if BYOL licenses is used"
+  default = ""
 }
 variable "flexvm_token" {
   type    = string
   default = ""
 }
 variable "fgtsku" {
-  type = map
-  default = {
-     byol = "fortinet_fg-vm"
-     payg = "fortinet_fg-vm_payg_20190624"
-  }
+  type = string
+  default = "fortinet_fg-vm"
 }
 variable "fgtversion" {
   type    = string
-  default = "7.0.1"
+  default = "7.4.0"
 }
 
 variable "fgtiface1" {

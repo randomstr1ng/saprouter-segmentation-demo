@@ -51,13 +51,12 @@ resource "azurerm_virtual_machine" "fgtvm" {
 data "template_file" "fgtvm" {
   template = file(var.bootstrap-fgtvm)
   vars = {
-    type            = var.license_type
     license_file    = var.license
     resource_group  = azurerm_resource_group.resource_group.name
     subscription_id = var.subscription_id
-    client_secret   = var.client_secret
-    client_id       = var.client_id
-    tenant_id       = var.tenant_id
+    # client_secret   = var.client_secret
+    # client_id       = var.client_id
+    # tenant_id       = var.tenant_id
     flexvm_token    = var.flexvm_token
   }
 }
