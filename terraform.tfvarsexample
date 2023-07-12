@@ -6,3 +6,6 @@ tenant_id = ""
 # FortiGate adjustments
 adminusername = ""
 adminpassword = ""
+
+# Optional: FortiFlex licenses token
+flexvm_token = ""

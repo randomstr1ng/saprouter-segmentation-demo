@@ -36,7 +36,7 @@ The Setup consist of the following components:
 
 ## Deploy demo environment
 
-- Fillout the required variables within `variables.tfvars` (Example: variables.tfvarsexample)
+- Fillout the required variables within `terraform.tfvars` (Example: terraform.tfvarsexample)
 
 ```terraform
 subscription_id = ""
@@ -46,9 +46,10 @@ tenant_id = ""
 size = ""
 adminusername = ""
 adminpassword = ""
+flexvm_token = ""
 ```
 
-* enter a valid license into `./configurations/license.txt`
+* enter a valid license into `./configurations/license.txt` or provide a FortiFlex license token.
 * Initilize terraform environment
 
 ```bash
@@ -58,9 +59,9 @@ $ terraform init
 * Check & Deploy the demo environment
 
 ```bash
-$ terraform plan --var-file variables.tfvars
+$ terraform plan
 ...[snip]...
-$ terraform apply --var-file variables.tfvars
+$ terraform apply
 ...[snip]...
 ```
 
